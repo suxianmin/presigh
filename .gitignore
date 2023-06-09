@@ -1,0 +1,15 @@
+build/*
+build-*
+clang/*
+clang-*
+.vscode/*.db
+.vscode/settings.json
+third_party
+genfiles/*
+*.sublime-*
+.tags
+!third_party/include/*
+*.pyc
+/CMakeLists.txt.user
+_deps
+releases
