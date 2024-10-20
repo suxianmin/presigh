@@ -171,3 +171,25 @@ function startServer() {
 }
 
 module.exports = startServer;
+module.exports = {
+  entry: `./out/${addonName}.js`,
+  devtool: 'source-map',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre",
+        exclude: /node_modules/
+      }
+    ]
+  },
+  output: {
+    filename: mainFile,
+    path: path.resolve('./lib'),
+    library: addonName,
+    libraryTarget: 'umd',
+    globalObject: 'this'
+  },
+  mode: 'production'
+};
