@@ -20,3 +20,10 @@ repos:
     hooks:
       - id: clang-format
         name: Clang formatting
+ifneq (bsdtar,$(findstring bsdtar,$(TAR_TEST)))
+#gnu tar
+UNTAR = $(TAR) -xmf
+else
+#bsd tar
+UNTAR = $(TAR) -xmUf
+endif
