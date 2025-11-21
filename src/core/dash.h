@@ -896,3 +896,15 @@ void DashTable<_Key, _Value, Policy>::TraverseBucket(const_iterator it, Cb&& cb)
 }
 
 }  // namespace dfly
+get-libssh2: $(LIBSSH2_SRC_FILE)
+extract-libssh2: $(SRCCACHE)/$(LIBSSH2_SRC_DIR)/source-extracted
+configure-libssh2: $(BUILDDIR)/$(LIBSSH2_SRC_DIR)/build-configured
+compile-libssh2: $(BUILDDIR)/$(LIBSSH2_SRC_DIR)/build-compiled
+fastcheck-libssh2: check-libssh2
+check-libssh2: $(BUILDDIR)/$(LIBSSH2_SRC_DIR)/build-checked
+
+else # USE_BINARYBUILDER_LIBSSH2
+
+$(eval $(call bb-install,libssh2,LIBSSH2,false))
+
+endif
